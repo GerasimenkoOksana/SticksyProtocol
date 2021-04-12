@@ -19,6 +19,21 @@ namespace SticksyProtocol
             text = "";
             isChecked = false;
         }
+
+        public override bool Equals(object obj)
+        {
+            return obj is TextCheck check &&
+                   text == check.text &&
+                   isChecked == check.isChecked;
+        }
+
+        public override int GetHashCode()
+        {
+            int hashCode = -491398972;
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(text);
+            hashCode = hashCode * -1521134295 + isChecked.GetHashCode();
+            return hashCode;
+        }
     }
 
 
