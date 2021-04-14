@@ -20,22 +20,7 @@ namespace SticksyProtocol
             id = -1;   //задача, созданная в стике, но еще не сохраненная в базу
             text = "";
             isChecked = false;
-        }
-
-        public override bool Equals(object obj)
-        {
-            return obj is TextCheck check &&
-                   text == check.text &&
-                   isChecked == check.isChecked;
-        }
-
-        public override int GetHashCode()
-        {
-            int hashCode = -491398972;
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(text);
-            hashCode = hashCode * -1521134295 + isChecked.GetHashCode();
-            return hashCode;
-        }
+        }       
     }
 
 
@@ -50,7 +35,7 @@ namespace SticksyProtocol
         public int idCreator { get; set; }
         public List<Friend> idVisiters { get; set; }
         public DateTime date { get; set; }
-        public KnownColor color { get; set; }
+        public string color { get; set; }
         public Stick(int id, int idCreator)
         {
             this.id = id;
@@ -58,7 +43,7 @@ namespace SticksyProtocol
             this.idVisiters = new List<Friend>();
             this.tags = new List<string>();
             this.date = DateTime.Now;
-            this.color = KnownColor.White;
+            this.color = "White";
         }
     }
 }
