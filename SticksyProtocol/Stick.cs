@@ -21,6 +21,12 @@ namespace SticksyProtocol
             this.id = -1;
             this.isChecked = false;
         }
+        public CheckboxContent(int id, string text, bool isChecked)
+        {
+            this.text = text;
+            this.id = id;
+            this.isChecked = isChecked;
+        }
     }
 
     [Serializable]
@@ -33,6 +39,11 @@ namespace SticksyProtocol
             this.text = text;
             this.id = -1;
         }
+        public TextContent(int id, string text)
+        {
+            this.text = text;
+            this.id = id;
+        }
     }
 
     [Serializable]
@@ -43,14 +54,14 @@ namespace SticksyProtocol
         public List<IStickContent> content { get; set; }
         public List<string> tags { get; set; }
         public int idCreator { get; set; }
-        public List<Friend> Visiters { get; set; }
+        public List<Friend> visiters { get; set; }
         public DateTime date { get; set; }
         public string color { get; set; }
         public Stick(int id, int idCreator)
         {
             this.id = id;
             this.idCreator = idCreator;
-            this.Visiters = new List<Friend>();
+            this.visiters = new List<Friend>();
             this.tags = new List<string>();
             this.date = DateTime.Now;
             this.color = "White";
