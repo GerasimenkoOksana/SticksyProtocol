@@ -12,10 +12,12 @@ namespace SticksyProtocol
     [Serializable]
     public class TextCheck : IStickContent
     {
+        public int id { get; set; }  //нужен только для БД
         public string text { get; set; }
         public bool isChecked { get; set; }
         public TextCheck()
         {
+            id = -1;   //задача, созданная в стике, но еще не сохраненная в базу
             text = "";
             isChecked = false;
         }
