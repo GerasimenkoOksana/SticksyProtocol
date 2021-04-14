@@ -9,7 +9,8 @@ using System.Threading.Tasks;
 namespace SticksyProtocol
 {
     public interface IData { }
-    public enum CommandUser { SignUp, SignIn }
+    public enum CommandUser { SignUp, SignIn } 
+    public enum TypeId { IdStick, IdUser } 
 
     [Serializable]
     public class Sign : IData  //запрос пользователя серверу на регистрацию/авторизацию
@@ -81,9 +82,11 @@ namespace SticksyProtocol
     public class AnswerId : IData  // ответ сервера пользователю - id стика или пользователя или null в случае отказа (если при регистрации уже есть пользователь с данным логином)
     {
         public int id { get; }
-        public AnswerId(int id)
+        public TypeId typeId { get;}
+        public AnswerId(int id, TypeId typeId)
         {
             this.id = id;
+            this.typeId = typeId;
         }
     }
 
