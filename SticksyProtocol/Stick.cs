@@ -33,14 +33,14 @@ namespace SticksyProtocol
         public List<TextCheck> content { get; set; }
         public List<string> tags { get; set; }
         public int idCreator { get; set; }
-        public List<Friend> idVisiters { get; set; }
+        public List<Friend> Visiters { get; set; }
         public DateTime date { get; set; }
         public string color { get; set; }
         public Stick(int id, int idCreator)
         {
             this.id = id;
             this.idCreator = idCreator;
-            this.idVisiters = new List<Friend>();
+            this.Visiters = new List<Friend>();
             this.tags = new List<string>();
             this.date = DateTime.Now;
             this.color = "White";

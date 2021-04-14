@@ -33,21 +33,6 @@ namespace SticksyProtocol
         {
             this.id = id;
             this.login = login;
-        }
-
-        public override bool Equals(object obj)
-        {
-            return obj is Friend friend &&
-                   id == friend.id &&
-                   login == friend.login;
-        }
-
-        public override int GetHashCode()
-        {
-            int hashCode = 962899218;
-            hashCode = hashCode * -1521134295 + id.GetHashCode();
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(login);
-            return hashCode;
-        }
+        }       
     }
 }
