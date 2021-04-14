@@ -65,20 +65,6 @@ namespace SticksyProtocol
     public class GetUsers : IData { }
 
     [Serializable]
-    public class AddFriend : IData  //запрос пользователя серверу на добавление другого пользователя к стику
-    {
-        public int idCreator { get; }
-        public int idFriend { get; }
-        public int idStick { get; }
-        public AddFriend(int idCreator, int idFriend, int idStick)
-        {
-            this.idCreator = idCreator;
-            this.idFriend = idFriend;
-            this.idStick = idStick;
-        }
-    }
-
-    [Serializable]
     public class AnswerId : IData  // ответ сервера пользователю - id стика или пользователя или null в случае отказа (если при регистрации уже есть пользователь с данным логином)
     {
         public int id { get; }
