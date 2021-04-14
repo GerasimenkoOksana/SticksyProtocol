@@ -10,27 +10,37 @@ namespace SticksyProtocol
     public interface IStickContent { }
 
     [Serializable]
-    public class TextCheck : IStickContent
+    public class CheckboxContent : IStickContent
     {
-        public int id { get; set; }  //нужен только для БД
-        public string text { get; set; }
-        public bool isChecked { get; set; }
-        public TextCheck()
+        public int id { get; set; } = -1;  //нужен только для БД (id = -1 у контента, созданного но не сохраненного в БД)
+        public string text { get; set; } = string.Empty;
+        public bool isChecked { get; set; } = false;
+        public CheckboxContent(string text)
         {
-            id = -1;   //задача, созданная в стике, но еще не сохраненная в базу
-            text = "";
-            isChecked = false;
-        }       
+            this.text = text;
+            this.id = -1;
+            this.isChecked = false;
+        }
     }
 
-
+    [Serializable]
+    public class TextContent : IStickContent
+    {
+        public int id { get; set; } = -1;  //нужен только для БД (id = -1 у контента, созданного но не сохраненного в БД)
+        public string text { get; set; } = string.Empty;
+        public TextContent(string text)
+        {
+            this.text = text;
+            this.id = -1;
+        }
+    }
 
     [Serializable]
     public class Stick
     {
         public int id { get; set; }
         public string title { get; set; }
-        public List<TextCheck> content { get; set; }
+        public List<IStickContent> content { get; set; }
         public List<string> tags { get; set; }
         public int idCreator { get; set; }
         public List<Friend> Visiters { get; set; }
@@ -44,6 +54,7 @@ namespace SticksyProtocol
             this.tags = new List<string>();
             this.date = DateTime.Now;
             this.color = "White";
+            this.content = new List<IStickContent>();
         }
     }
 }
