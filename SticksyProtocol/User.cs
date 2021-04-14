@@ -10,15 +10,13 @@ namespace SticksyProtocol
     public class User
     {
         public int id { get; set; }
-        public string login { get; set; }
-        public string password { get; set; }
+        public string login { get; set; }        
         public List<Stick> sticks { get; set; }
 
-        public User(int id, string login, string password)
+        public User(int id, string login)
         {
             this.id = id;
-            this.login = login;
-            this.password = password;
+            this.login = login;           
             this.sticks = new List<Stick>();
         }
     }
